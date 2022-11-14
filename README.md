@@ -3,6 +3,50 @@ Repository for notes and examples of programming patterns
 
 https://refactoring.guru/design-patterns
 
+# Overview
+
+Programming patterns are not algorithms but high-level blueprints of solutions for common and recurring problems.
+
+Patterns also server as a common language between engineers, giving name to the common solutions and making them easier to refer to.
+
+Each pattern should be tailored to the specific problem, language and environment, it is not shelf-ware.
+
+Use with care, if all you have is a hammer, everything looks like a nail. Additionally, patterns may cover up for language deficiencies, it could be that another language entirely should be used.
+
+
+There are different ways to classify and categorize patterns.
+
+Classifying by size, it's a scale, smaller patterns, specific to a problem and language are commonly referred to as idioms, which is a "best-practice" way to do something. 
+
+Higher-level and more general patterns can be referred to as architectural patterns. These can be implemented in any language.
+
+
+Categorizing by intent there are three overall groups:
+
+* Creational patterns
+* Structural patterns
+* Behavioral patterns
+
+
+## Creational Patterns
+
+### Factory Method
+
+Creating objects in a super class.
+
+Objects returned often referred to as products.
+
+The objects must share a common interface. The factor must return object matching this interface.
+
+The code using the factory is called client code.
+
+The client code can use the products by the interface knowing that it will adhere to that interface.
+
+
+It's important to notice that the products must adhere to an abstract interface, however, the factory must also adhere to a factory interface.
+
+Interface abstraction is used in both the factory and the product which it produces.
+
 
 ## Abstract Factory
 
