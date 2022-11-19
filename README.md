@@ -84,3 +84,4 @@ The prototype pattern delegates the cloning process to the objects that are bein
 Cloning interface which has a single `clone` method. Since it is the object being cloned that is implementing the functionality, all members are readily available.
 
 
+
