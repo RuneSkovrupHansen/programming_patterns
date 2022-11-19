@@ -128,4 +128,84 @@ The prototype pattern delegates the cloning process to the objects that are bein
 Cloning interface which has a single `clone` method. Since it is the object being cloned that is implementing the functionality, all members are readily available.
 
 
+## Singleton
+
+Singleton is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.
+
+The singleton solves the two problems of:
+
+* Ensuring only a single object a type exist, usually used to control access to shared resource
+* Provide global access to the instance. A singleton has more access control than global variables
+
+
+Singleton implementation:
+
+* Make the default constructor private, to prevent other objects from using the `new` operator with the Singleton class.
+* Create a static creation method that acts as a constructor. Under the hood, this method calls the private constructor to create an object and saves it in a static field. All following calls to this method return the cached object.
+
+
+Requires thread handling to avoid creating multiple singleton objects at the same time.
+
+
+# Structural Patterns
+
+## Adapter
+
+Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate.
+
+An adapter converts the interface of an object, so that it is compatible with the interface of another.
+
+
+In the example the adapter is passed an instance of the object which must be adapted. The adapter then serves as a wrapper around the object, providing the correct interface for use.
+
+
+The adapter wraps the object which must be used by another component. The adapter implements an interface which describes how the component would like to consume the interface. The adapter is then used to implement whatever is required to call the service like the interface describes.
+
+
+An adapter changes the interface to an existing object where a decorator enhances an object without changing its interface.
+
+
+## Bridge
+
+Lets you split abstraction and implementation. Supposedly.
+
+Instead of adding all implementation to a single class, the implementation can be made in another class, and a reference can be made to that class. In this way part of the complexity of the class is abstracted away.
+
+Remember that dependency injection is a good thing.
+
+Think about dimensions of a class. If a class is extending in multiple dimensions it is possible that one dimension should be abstracted into another class. A class should have a single focus, and complexity handling variations should be abstracted away.
+
+Bridge pattern could also be referred to as an interface pattern.
+
+Single Responsibility Principle.
+
+
+## Composite
+
+Can be used when a problem or topic can be structured like a tree, i.e. with leafs and composites.
+
+An interface can be created so that each leaf and composites perform an action.
+
+Example of boxes (with boxes ...) with components. In composite pattern each could adhere to interface of calculating cost, making it easy. The composite action on a box would be to calculate cost of all nested boxes.
+
+Graphical program like Figma example. Interface of move and draw, composite can hold multiple objects.
+
+
+The Composite pattern provides you with two basic element types that share a common interface: simple leaves and complex containers. A container can be composed of both leaves and other containers. This lets you construct a nested recursive object structure that resembles a tree.
+
+
+Useful when complex objects can be made up of many small objects.
+
+
+## Decorator
+
+Wrap an object according to an interface to allow consumers to rely on the interface. Wrapping allows the logic to be modified slightly.
+
+Used to extend the behavior of a class.
+
+Common to use dependency injection to wrap objects. The object to be wrapped is passed to a wrapper class.
+
+
+## Facade
+
 
