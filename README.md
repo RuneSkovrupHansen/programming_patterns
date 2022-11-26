@@ -209,3 +209,60 @@ Common to use dependency injection to wrap objects. The object to be wrapped is 
 ## Facade
 
 
+
+# Behavioral Patterns
+
+## Chain of Responsibility
+
+Abstracting certain behaviors into their own classes with a single method that performs the behavior. Then chaining these to get an aggregated result.
+
+The separation between classes will be more clean.
+
+Each class is referred to as a *handler*.
+
+Each handler carries a reference to the next handler in line to pass successful requests to. This is what creates the chain.
+
+
+Rather than a chain of behaviors which must each be applied, it can also be a chain of operations to catch an action, the first one that is able to handle it does so.
+
+UI elements and their inheritance form a chain.
+
+
+Than Handler class if often implemented as an interface which ensures that the functionality is replicated correctly across the links in the chain.
+
+A BaseHandler can be used to put boilerplate code that is required for all handlers.
+
+
+Example of a `showHelp()`  function which propagates to parents if a component is unable to provide help.
+
+
+## Command
+
+https://refactoring.guru/design-patterns/command
+
+Command is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request. This transformation lets you pass requests as a method arguments, delay or queue a request’s execution, and support undoable operations.
+
+Packing a command / operation into an action which can be taken by the receiver. The object is more manageable which allows for operations such as queuing, delaying, etc.
+
+The patterns is good if you have duplicate behavior, of if you expect to have it in the future.
+
+
+Example showing that sub-classing can become very messy. Additionally, if functionality is duplicated somewhere that cannot be put in a sub-class, that functionality will need to copied leaving multiple implementations of the same thing in different places.
+
+Example of a button for copy and pasting, the keyboard shortcut cannot share a class to gain the same functionality.
+
+
+It's a question of if the logic of an action should be placed in the specific location. Should a button really contain the logic to perform a backend operation? Or should i contain logic to send an operation or command to the backend?
+
+A single command-class which handles the functionality of sending requests to the backend.
+
+Analogy of a restaurant, an order is a "command" it is queued until it is ready, where the chef uses the order to perform the operation.
+
+
+The client is usually not responsible for creating the command itself, it can call a constructor implemented by the command class to create a command.
+
+
+Using the patterns is easy to queue and schedule commands, but it can also be used to implement reversible actions since all information is contained in the command.
+
+
+Single command class with methods to initialize specific commands. The specific commands can specify their info as private members of the command class.
