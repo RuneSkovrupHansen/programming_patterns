@@ -266,3 +266,82 @@ Using the patterns is easy to queue and schedule commands, but it can also be us
 
 
 Single command class with methods to initialize specific commands. The specific commands can specify their info as private members of the command class.
+
+
+## Iterator
+
+Iterator is a behavioral design pattern that lets you traverse elements of a collection without exposing its underlying representation (list, stack, tree, etc.).
+
+From Rust it is also know that an iterator removes the boilerplate of loops and indexing and that it can be done at zero cost.
+
+Collections are groups of elements. Different structures. Very common.
+
+
+The iterator pattern extracts the traversal behavior of a collection into a separate object called an *iterator*.
+
+Tree Collection
+
+* Depth-first iterator
+* Breadth-first iterator
+
+
+Common for iterators to have one primary method for fetching elements of the collection. Client can keep running until method does not return anything.
+
+One common interface for all iterators.
+
+
+Components:
+
+* Iterator interface
+  * getNext()
+  * hasMore(): bool
+
+* InterableCollection interface
+  * createIterator(): Iterator
+
+Concrete implementations would be required.
+
+
+Useful to hide a complex data structure from clients and provide an easy way to go through elements.
+
+Can significantly reduce the boilerplate of traversal code in business logic.
+
+
+The iterator is coupled with a specific instance of a collection, usually created by calling a function like `.iter()` on the collection.
+
+
+## Mediator
+
+Mediator / Intermediary / Controller
+
+Pattern restricts direction communication between objects and forces communication through mediator object.
+
+
+Mediator is defined as an interface with a method to notify on an action. The interface is used to enable callbacks when an action takes place.
+
+The class implementing the mediator implements the a method like `onClick(id)` and handles all logic in that method. Each component which must have a method like `setOnClickListener()` to set connect the component to the mediator class.
+
+In the example, an object specifically dedicated to handling the events is created, a mediator class. But in Android it can be defined on the main Activity / Container class.
+
+
+The Android `onClick` / `setOnClickListener` design is an implementation of this.
+
+
+Reflections:
+
+Could probably also be done with a callback passing a reference to a single callback method. But in the pattern it is instead af reference to a class which implements the mediator interface.
+
+Passing a reference to a class rather than a function. It could also be possible to pass individual references to functions for individual callbacks instead of having a single large function which would have to handle all of the switch logic of finding the component which initiated the callback.
+
+The pattern does make it clear where an event occurs, rather than having individual methods.
+
+The pattern can be more or less generalized. It could be a method call `onEvent()` or it could be `onLongPress()`.
+
+
+## Memento
+
+
+
+
+
+
