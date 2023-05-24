@@ -208,4 +208,68 @@ Common to use dependency injection to wrap objects. The object to be wrapped is 
 
 ## Facade
 
+A facade is a wrapper around a complex system to provide a limited but simplified interface for usage. This serves to hide unnecessary information and complexity.
+
+
+## Flyweight
+
+https://refactoring.guru/design-patterns/flyweight
+
+Flyweight is a structural design pattern that lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.
+
+
+Objects *intrinsic* state, the static state that is immutable. Example of bullet size and color.
+
+Objects *extrinsic* state, the non-static state that is mutable. Example of position and speed.
+
+
+The patterns suggests that you stop storing the intrinsic state in an object since it takes up memory.
+
+An object that only stores the intrinsic state is called a flyweight object.
+
+
+Objects storing the mutable state, the extrinsic state can reference flyweight objects. Doing this, the flyweight objects only need to be stored once, rather than for each object.
+
+The flyweight should be immutable. Do not expose setters or public fields.
+
+
+Factory Flyweight:
+
+Convenient way to handle flyweight is to have a factory which can store the flyweight objects and then produce extrinsic state mutable objects which reference the pool of flyweight objects.
+
+This echo's the notion that a class should only members which are meant to be modified. Any constant or static fields on an object is dead memory, since all references could point to a single source instead.
+
+
+The state that is passed to the flyweight object (intrinsic) is called extrinsic. It's common to have the operations of the object be part of the flyweight since they are not unique. The part of the object that is unique / mutable is then passed to the flyweight operations as part of the call.
+
+
+The context class is what hold both the extrinsic and intrinsic states and performs the operations.
+
+
+This approach saves RAM but is more CPU intensive, it's a tradeoff.
+
+
+## Proxy
+
+Proxy is a structural design pattern that lets you provide a substitute or placeholder for another object. A proxy controls access to the original object, allowing you to perform something either before or after the request gets through to the original object.
+
+
+You can create a proxy object for a slow service, such as a database, etc. The proxy takes care of all the interaction which allows the clients to not have to implement that code, and run faster since it does not have to block to wait for the service.
+
+Proxies can be used to implement lazy-initialization and caching.
+
+
+Proxies can be stacked to provide additional functionality, examples:
+
+* Caching
+* Lazy-loading
+* Protection
+* Logging
+* Smart reference
+
+
+Similar to a decorator, just as a structural pattern. A proxy usually manages the lifecycle of an object as opposed to a decorator, which just wraps an existing object.
+
+
+# Behavioral Patterns
 
